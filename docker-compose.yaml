@@ -6,6 +6,7 @@ services:
     user: root:root
     #container_name: tf_1_11_py3-DCGAN-LSGAN-WGAN-WGAN-GP-Tensorflow
     network_mode: "host"
+    ipc: host
     ports:
       - "8888:8888"
       - "8889:8889"
