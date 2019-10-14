@@ -1,3 +1,4 @@
+*.pyc
 EDSR-PyTorch-1-exp/results/
 .idea/
 # Byte-compiled / optimized / DLL files
