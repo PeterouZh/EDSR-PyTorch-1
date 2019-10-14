@@ -1,5 +1,5 @@
 import torch
-
+import os
 import utility
 import data
 import model
@@ -10,7 +10,7 @@ from trainer import Trainer
 torch.manual_seed(args.seed)
 checkpoint = utility.checkpoint(args)
 
-def main():
+def main(myargs=None):
     global model
     if args.data_test == ['video']:
         from videotester import VideoTester
@@ -28,6 +28,17 @@ def main():
                 t.test()
 
             checkpoint.done()
+
+
+def run(args1, myargs):
+    myargs.config = getattr(myargs.config, args1.command)
+    myargs.args = args1
+    for k, v in myargs.config.items():
+        setattr(args, k, v)
+    args.dir_data = os.path.expanduser(args.dir_data)
+    main(myargs)
+    pass
+
 
 if __name__ == '__main__':
     main()

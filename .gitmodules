@@ -1,0 +1,3 @@
+[submodule "submodule/template_lib"]
+	path = submodule/template_lib
+	url = git@github.com:PeterouZh/template_lib.git
