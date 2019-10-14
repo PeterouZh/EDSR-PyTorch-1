@@ -4,13 +4,15 @@ import utility
 import data
 import model
 import loss
-from option import args
+from option import args, setup_args
 from trainer import Trainer
 
 torch.manual_seed(args.seed)
-checkpoint = utility.checkpoint(args)
+
 
 def main(myargs=None):
+    setup_args(args)
+    checkpoint = utility.checkpoint(args, outdir=myargs.args.outdir)
     global model
     if args.data_test == ['video']:
         from videotester import VideoTester

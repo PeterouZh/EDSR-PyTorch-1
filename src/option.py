@@ -144,18 +144,20 @@ parser.add_argument('--save_gt', action='store_true',
                     help='save low-resolution and high-resolution images together')
 
 args = parser.parse_args()
-template.set_template(args)
 
-args.scale = list(map(lambda x: int(x), args.scale.split('+')))
-args.data_train = args.data_train.split('+')
-args.data_test = args.data_test.split('+')
+def setup_args(args):
+  template.set_template(args)
 
-if args.epochs == 0:
-    args.epochs = 1e8
+  args.scale = list(map(lambda x: int(x), args.scale.split('+')))
+  args.data_train = args.data_train.split('+')
+  args.data_test = args.data_test.split('+')
 
-for arg in vars(args):
-    if vars(args)[arg] == 'True':
-        vars(args)[arg] = True
-    elif vars(args)[arg] == 'False':
-        vars(args)[arg] = False
+  if args.epochs == 0:
+      args.epochs = 1e8
+
+  for arg in vars(args):
+      if vars(args)[arg] == 'True':
+          vars(args)[arg] = True
+      elif vars(args)[arg] == 'False':
+          vars(args)[arg] = False
 
