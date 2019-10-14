@@ -1,3 +1,6 @@
 [submodule "submodule/template_lib"]
 	path = submodule/template_lib
 	url = git@github.com:PeterouZh/template_lib.git
+[submodule "EDSR-PyTorch-1-exp"]
+	path = EDSR-PyTorch-1-exp
+	url = git@github.com:PeterouZh/EDSR-PyTorch-1-exp.git
